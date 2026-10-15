@@ -36,17 +36,26 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
+      testIgnore: /camoufox\.spec\.ts/,
       use: { ...devices['Desktop Chrome'] },
     },
 
     {
       name: 'firefox',
+      testIgnore: /camoufox\.spec\.ts/,
       use: { ...devices['Desktop Firefox'] },
     },
 
     {
       name: 'webkit',
+      testIgnore: /camoufox\.spec\.ts/,
       use: { ...devices['Desktop Safari'] },
+    },
+
+    {
+      /* Launches the Camoufox browser itself (see tests/camoufox.spec.ts). */
+      name: 'camoufox',
+      testMatch: /camoufox\.spec\.ts/,
     },
 
     /* Test against mobile viewports. */
